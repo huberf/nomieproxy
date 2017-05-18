@@ -16,7 +16,7 @@ replacements = {
 def main():
     return "Server is functioning."
 
-@user.route('/<auth_input>/<tracker_name>', defaults={'value': None})
+@app.route('/<auth_input>/<tracker_name>', defaults={'value': None})
 @app.route("/<auth_input>/<tracker_name>/<value>")
 def basic_track(auth_input, tracker_name, value):
     success = True
