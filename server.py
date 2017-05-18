@@ -9,7 +9,14 @@ api_key = os.environ['NOMIE_API_KEY']
 auth_key = os.environ['PROXY_KEY']
 
 replacements = {
-        'pee': '#1'
+        'pee': '#1',
+        'peed': '#1',
+        'poo': '#2',
+        'pooed': '#2',
+        'angry': 'Angry',
+        'eat': 'Eat',
+        'gamed': 'Gamed',
+        'shave': 'Shave'
         }
 
 @app.route("/")
