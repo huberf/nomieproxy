@@ -18,7 +18,7 @@ def main():
 
 @app.route('/<auth_input>/<tracker_name>', defaults={'value': None})
 @app.route("/<auth_input>/<tracker_name>/<value>")
-def basic_track(auth_input, tracker_name, value):
+def h(auth_input, tracker_name, value):
     success = True
     if auth_input == auth_key:
         try:
@@ -27,7 +27,7 @@ def basic_track(auth_input, tracker_name, value):
                 final_tracker = replacements[tracker_name]
             except:
                 do_nothing = True
-            url_to_hit = api_head + 'push/' + api_key + '/label=' + final_tracker
+            url_to_hit = api_head + 'push/' + api_key + '/action=track/label=' + final_tracker
             if not value == None:
                 url_to_hit += '/value=' + value
             r.get(url_to_hit)
@@ -35,7 +35,10 @@ def basic_track(auth_input, tracker_name, value):
             success = False
     else:
         success = False
-    return success
+    if success:
+        return '{"success": "true"}'
+    else:
+        return '{"success": "false"}'
 
 @app.route("/secure", methods=['POST'])
 def parse_request():
