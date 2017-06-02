@@ -61,7 +61,7 @@ def h(auth_input, tracker_name, value):
         return '{"success": "false"}'
 
 @app.route('/note/<auth_input>/<text>')
-def h(auth_input, text):
+def note(auth_input, text):
     success = True
     if auth_input == auth_key:
         try:
