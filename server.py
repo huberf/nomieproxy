@@ -45,6 +45,21 @@ def h(auth_input, tracker_name, value):
     else:
         return '{"success": "false"}'
 
+@app.route('/note/<auth_input>/<text>')
+def note(auth_input, text):
+    success = True
+    if auth_input == auth_key:
+        try:
+            cleaned_text = url_encode(text)
+            url_to_hit = api_head + 'push/' + api_key + '/action=create-note/note=' + cleaned_text
+            r.get(url_to_hit)
+        except:
+            success = False
+    if success:
+        return '{"success": "true"}'
+    else:
+        return '{"success": "false"}'
+
 @app.route("/secure", methods=['POST'])
 def parse_request():
     # Preparing for future developments
