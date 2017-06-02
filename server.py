@@ -16,7 +16,13 @@ replacements = {
         'angry': 'Angry',
         'eat': 'Eat',
         'gamed': 'Gamed',
-        'shave': 'Shave'
+        'shave': 'Shave',
+        'lonely': 'Lonely',
+        'flossed': 'Floss',
+        'shower': 'Shower',
+        'fingernails': 'Fingernails',
+        'shave': 'Shave',
+        'cleansed': 'Wash Underarms/Face'
         }
 
 @app.route("/")
