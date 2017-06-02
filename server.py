@@ -24,7 +24,9 @@ replacements = {
         'shower': 'Shower',
         'fingernails': 'Fingernails',
         'shave': 'Shave',
-        'cleansed': 'Wash Underarms/Face'
+        'cleansed': 'Wash Underarms/Face',
+        'soylent': 'Soylent',
+        'joylent': 'Soylent'
         }
 
 def url_encode(string):
