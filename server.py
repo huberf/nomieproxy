@@ -25,6 +25,10 @@ replacements = {
         'cleansed': 'Wash Underarms/Face'
         }
 
+def url_encode(string):
+    # Cleanup later maybe with external library
+    return string.replace('/', '%2F').replace(' ', '%20').replace('#', '%23')
+
 @app.route("/")
 def main():
     return "Server is functioning."
@@ -40,7 +44,8 @@ def h(auth_input, tracker_name, value):
                 final_tracker = replacements[tracker_name]
             except:
                 do_nothing = True
-            url_to_hit = api_head + 'push/' + api_key + '/action=track/label=' + final_tracker
+            cleaned_tracker = url_encode(final_tracker)
+            url_to_hit = api_head + 'push/' + api_key + '/action=track/label=' + cleaned_tracker
             if not value == None:
                 url_to_hit += '/value=' + value
             r.get(url_to_hit)
