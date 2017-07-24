@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask
 from flask import request
 import requests as r
@@ -8,9 +9,7 @@ api_head = 'https://api.nomie.io/v2/'
 api_key = os.environ['NOMIE_API_KEY']
 auth_key = os.environ['PROXY_KEY']
 
-replacements = {
-        'pee': '#1'
-        }
+replacements = json.loads(open('replacements.json').read())
 
 def url_encode(string):
     # Cleanup later maybe with external library
